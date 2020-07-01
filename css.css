@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*3D旋转动画化*/
+.div1{
+    position: relative;
+    width: 302px;
+    height: 402px;
+    border: 1px solid black;
+    margin: 10px auto;
+}
+.div2{
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    background: url("img/78076297_p0_master1200.jpg") no-repeat center;
+    background-size: 100% auto;
+}
+.div3{
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    background: url("img/80618126_p0_master1200.jpg") no-repeat center;
+    background-size: 100% auto;
+    backface-visibility: hidden;
+}
+.div1:hover .div3{
+    transform: rotateY(180deg);
+    transition: all 2s;
+}
+.div1:hover .div2{
+    transform: rotateY(180deg);
+    transition: all 2s;
+}
+
+/*骰子*/
+.box{
+    perspective: 800px;
+}
+.box-body{
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 60px auto;
+    animation: go3d 10s infinite;
+}
+.face{
+    position: absolute;
+    width: 98px;
+    height: 98px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 98px;
+    font-size: 24px;
+}
+.face:nth-child(1){
+    transform: translateZ(98px);
+}
+.face:nth-child(2){
+    transform: translateZ(49px) translateY(49px) rotateX(90deg);
+}
+.face:nth-child(3){
+    transform: translateZ(49px) translateY(-49px) rotateX(90deg);
+}
+.face:nth-child(4){
+    transform: translateZ(49px) translateX(49px) rotateY(90deg);
+}
+.face:nth-child(5){
+    transform: translateZ(49px) translateX(-49px) rotateY(90deg);
+}
+@keyframes go3d {
+    100%{transform: rotate3d(1,1,0.4,360deg);}
+}
